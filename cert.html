@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Regio, Mark Kevin C.</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <img src="assets/logoPUP.png" alt="" height="30" width="30">
+      <a><span style="font-size:30px">Polytechnic University of the Philippines</span></a>
+    </div>
+    <div class="overlay"></div>
+  </header>
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="index.html">OJT-2</a>
+    <a href="cert.html">Certificate</a>
+    <div class="dropdown">
+        <a href="series1.html">Gallery</a>
+        <div class="dropdown-content">
+          <a href="series1.html">Series 1 Seminar</a>
+          <a href="series2.html">Series 2 Seminar</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+  <div class="gallery-container">
+    <img id="image" class="gallery-image" src="Background.jpeg" alt="Image" height="500" width="600">
+    <br>
+    <a class="btn" id="prevBtn" href="#">Previous</a>
+    <a class="btn" id="nextBtn" href="#">Next</a>
+  </div>
+
+  <script>
+    var images = ["assets/asti.jpg", "assets/ojt.jpg"]; // Add the image URLs here
+    var currentIndex = 0;
+    var imageElement = document.getElementById("image");
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+
+    function showImage(index) {
+      imageElement.src = images[index];
+      prevBtn.disabled = (index === 0);
+      nextBtn.disabled = (index === images.length - 1);
+    }
+
+    prevBtn.addEventListener("click", function() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showImage(currentIndex);
+      }
+    });
+
+    nextBtn.addEventListener("click", function() {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        showImage(currentIndex);
+      }
+    });
+
+    showImage(currentIndex);
+  </script>
+</body>
+</html>
